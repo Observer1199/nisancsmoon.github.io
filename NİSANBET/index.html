@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NİSANBET Yönlendirme</title>
+</head>
+<body>
+
+<script>
+var target = "https://nisanaff.xyz/m9ztu7";
+var isMobileOrTablet = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+if (!isMobileOrTablet) {
+  window.location = target;
+} else {
+  var isChromeAndroid = /Android/i.test(navigator.userAgent) && /Chrome/i.test(navigator.userAgent);
+  var isChromeIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) && /CriOS/i.test(navigator.userAgent);
+  if (isChromeAndroid || isChromeIOS) {
+    window.location = target;
+  } else {
+    var noProtocol = target.replace(/(^\w+:|^)\/\//, '');
+    var scheme = target.indexOf('https://') === 0 ? 'googlechromes://' : 'googlechrome://';
+    window.location = scheme + noProtocol;
+  }
+}
+</script>
+
+</body>
+</html>
