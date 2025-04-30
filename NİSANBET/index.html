@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KENTWİN Yönlendirme</title>
+  <title>Chrome'da Açılıyor...</title>
+  <script>
+    function openInChrome() {
+      // https://t.ly/casimoonkent
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf("android") > -1) {
+        // Android ise intent ile Chrome'da açmayı dene
+        window.location.href = "intent://t.ly/casimoonkent#Intent;scheme=https;package=com.android.chrome;end;";
+      } else {
+        // Android değilse normal yönlendir
+        window.location.href = "https://t.ly/casimoonkent";
+      }
+    }
+
+    window.onload = function () {
+      setTimeout(openInChrome, 100); // Yönlendirmeyi hafif gecikmeyle başlat
+    };
+  </script>
 </head>
 <body>
-
-<script>
-var target = "https://nisanaff.xyz/m9ztu7/";
-var isMobileOrTablet = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-if (!isMobileOrTablet) {
-  window.location = target;
-} else {
-  var isChromeAndroid = /Android/i.test(navigator.userAgent) && /Chrome/i.test(navigator.userAgent);
-  var isChromeIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) && /CriOS/i.test(navigator.userAgent);
-  if (isChromeAndroid || isChromeIOS) {
-    window.location = target;
-  } else {
-    var noProtocol = target.replace(/(^\w+:|^)\/\//, '');
-    var scheme = target.indexOf('https://') === 0 ? 'googlechromes://' : 'googlechrome://';
-    window.location = scheme + noProtocol;
-  }
-}
-</script>
-
+  <p style="font-family: sans-serif; font-size: 1.2em;">Bağlantı Chrome'da açılıyor... Lütfen bekleyin.</p>
 </body>
 </html>
